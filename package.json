@@ -1,7 +1,7 @@
 {
-    "name": "vignetteone",
+    "name": "nsdl-scenario",
     "version": "0.0.1",
-    "description": "our first vignette",
+    "description": "nsdl interns space defense scenario using cesiumJS",
     "main": "server.js",
     "scripts": {
         "start": "node server.js"
