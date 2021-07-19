@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NSDL scenario</title>
+
+    <script src="https://cesium.com/downloads/cesiumjs/releases/1.82/Build/Cesium/Cesium.js"></script>
+    <link href="https://cesium.com/downloads/cesiumjs/releases/1.82/Build/Cesium/Widgets/widgets.css" rel="stylesheet">
+
+    <link href="style.css" rel="stylesheet">
+
+    <script src = "functions.js"></script>
+    <script src = "variables.js"></script>
+    <script src = "entityFuncs.js"></script>
+    <script src = "scene-functions/contour-plots/VSATuj.js"></script>
+    <script src = "scene-functions/contour-plots/RHNuj.js"></script>
+    <script src = "scene-functions/contour-plots/SCSuj.js"></script>
+    <script src = "scene-functions/scene1.js"></script>
+    <script src = "scene-functions/scene2.js"></script>
+    <script src = "scene-functions/scene3.js"></script>
+    <script src = "scene-functions/scene4.js"></script>
+    <script src = "scene-functions/scene5.js"></script>
+    <script src = "scene-functions/scene6.js"></script>
+    <script src = "scene-functions/scene7.js"></script>
+    <script src = "scene-functions/scene8.js"></script>
+    <script src = "scene-functions/scene9.js"></script>
+    <script src = "scene-functions/scene10.js"></script>
+    <script src = "scene-functions/scene11.js"></script>
+    <script src = "scene-functions/scene12.js"></script>
+    <script src = "scene-functions/scene13.js"></script>
+
+ 
+</head>
+
+<body>
+    <div id="cesiumContainer"></div>
+    <div id="toolbar"></div>
+    <div id="demo"></div>
+    <div id = "text"></div>
+    <div id = "head"></div>
+    <script>
+        Cesium.Ion.defaultAccessToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiJjNzc1OWRmNi02NmY1LTQxMjktOWQ3Zi03NDBjZTAzYTIyMzQiLCJpZCI6NTkxNjMsImlhdCI6MTYyMzg2NDg0NH0._eg5bZDnJr26MNNLKoU04-H0knE9-qhA8TUsneSjaPc';
+
+        var viewer = new Cesium.Viewer('cesiumContainer', {
+            terrainProvider: Cesium.createWorldTerrain(),
+            shouldAnimate:true,
+            
+        });
+        var scene = viewer.scene;
+        var globe = scene.globe;
+        viewer.scene.primitives.add(Cesium.createOsmBuildings());
+        var display = viewer.animation.container.style.display === 'none' ? 'block' : 'none';
+        viewer.animation.container.style.display = display;
+        viewer.timeline.container.style.display = display;
+        viewer.forceResize();
+        
+
+        for (let i = 1; i < 14; i++) {
+            var sceneName = "scene" + i;
+            addToolbarButton(i, eval(sceneName));
+        }
+
+
+
+
+        // viewer.entities.add({
+        //     id: 'mou',
+        //     label: {
+        //         // position : Cesium.Cartesian2.ZERO, 
+        //         show: true   // Removed semicolon here
+        //     }
+        // });
+        // viewer.scene.canvas.addEventListener('mousemove', function(e) {
+        //     var entity = viewer.entities.getById('mou');
+        //     var ellipsoid = viewer.scene.globe.ellipsoid;
+        //     // Mouse over the globe to see the cartographic position 
+        //     var cartesian = viewer.camera.pickEllipsoid(new Cesium.Cartesian3(e.clientX, e.clientY), ellipsoid);
+        //     if (cartesian) {
+        //         var cartographic = ellipsoid.cartesianToCartographic(cartesian);
+        //         var longitudeString = Cesium.Math.toDegrees(cartographic.longitude).toFixed(10);
+        //         var latitudeString = Cesium.Math.toDegrees(cartographic.latitude).toFixed(10);
+        //         entity.position = cartesian;
+        //         entity.label.show = true;
+        //         entity.label.font_style = 84;
+        //         //entity.position= Cesium.Cartesian2.ZERO; 
+        //         entity.label.text = '(' + longitudeString + ', ' + latitudeString + ')';
+        //         var result = entity.label.text;  // We can reuse this
+        //         document.getElementById("demo").innerHTML = result;
+        //     } else {
+        //         entity.label.show = false;
+        //     }
+        // });
+
+
+    </script>
+</body>
+
+</html>

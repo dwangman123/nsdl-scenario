@@ -1,0 +1,20 @@
+{
+    "name": "vignetteone",
+    "version": "0.0.1",
+    "description": "our first vignette",
+    "main": "server.js",
+    "scripts": {
+        "start": "node server.js"
+    },
+    "dependencies": {
+        "express": "^4.16.4"
+    },
+    "engines": {
+        "node": "8.x"
+    },
+    "license": "MIT",
+    "keywords": [
+        "cesium",
+        "express"
+    ]
+}
